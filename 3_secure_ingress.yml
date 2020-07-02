@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: secure3
+spec:
+  tls:
+  - hosts:
+    - secure3.ako.avilab.me
+    secretName: certif1
+  rules:
+    - host: secure3.ako.avilab.me
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: s1
+            servicePort: 80
