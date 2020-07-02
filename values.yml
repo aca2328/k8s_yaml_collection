@@ -1,0 +1,42 @@
+# Default values for ako.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: avinetworks/ako
+  pullPolicy: IfNotPresent
+
+configs:
+  controllerVersion: "18.2.8"
+  shardVSSize: "SMALL"
+  shardVSPrefix: ""
+  fullSyncFrequency: "60" #seconds
+  cloudName: "vcenter6"
+  vrfRefName: "global"
+  disableStaticRouteSync: "false"
+  ingressApi: "corev1" #enum: extensionv1 and corev1 - if not set default to corev1
+  defaultIngController: "true"
+  subnetIP: "" # Subnet IP of the data network
+  subnetPrefix: "" # Subnet Prefix of the data network
+  networkName: "PG_name" # Network Name of the data network # << this one is mandatory
+  l7ShardingScheme: "namespace"
+  cniPlugin: "flannel" #enum: calico|canal|flannel
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+
+avicredentials:
+  username: admin # Avi controller username 
+  password: xxxxxx # Avi controller password
+
+persistentVolumeClaim: ""
+mountPath: "/log"
+logFile: "avi.log"
