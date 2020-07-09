@@ -1,13 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: l4-lb
+  labels:
+    app: gslb
+  name: avisvclb
   namespace: default
 spec:
   type: LoadBalancer
   ports:
-  - port: 8080
-    targetPort: 80
-    name: s1
+  - port: 80
+    targetPort: 8080
   selector:
-    app: s1
+    app: avi-server
