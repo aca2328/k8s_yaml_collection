@@ -10,5 +10,5 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: s1
-          servicePort: 8080
+          serviceName: green
+          servicePort: 80
