@@ -3,17 +3,17 @@ kind: Ingress
 metadata:
   labels:
     app: gslb
-  name: secure3
+  name: secure2
 spec:
   tls:
   - hosts:
-    - secure3.ako.avilab.me
+    - secure2.ako.avilab.me
     secretName: certif1
   rules:
-    - host: secure3.ako.avilab.me
+    - host: secure2.ako.avilab.me
       http:
         paths:
         - path: /
           backend:
-            serviceName: blue
+            serviceName: green
             servicePort: 80
