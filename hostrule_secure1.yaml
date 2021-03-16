@@ -1,0 +1,25 @@
+apiVersion: ako.vmware.com/v1alpha1
+kind: HostRule
+metadata:
+  name: secure1-hr
+  namespace: default
+spec:
+  virtualhost:
+    fqdn: secure1.ako.avilab.me
+  #  enableVirtualhost: true
+  #  tls: # optional
+  #    sslKeyCertificate:
+  #      name: avi-ssl-key-cert
+  #      type: ref
+  #    sslProfile: avi-ssl-profile
+  #    termination: edge
+  #  httpPolicy: 
+  #    policySets:
+  #    - avi-secure-policy-ref
+  #    overwrite: false
+ #   datascript:
+ #   - secure1_dscript
+    wafPolicy: secure1_waf
+    applicationProfile: secure1_profile
+    analyticsProfile: secure1_analytics_profile
+    errorPageProfile: secure1_err_profile
