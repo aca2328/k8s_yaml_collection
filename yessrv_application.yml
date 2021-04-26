@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: yesserv
-        image: aca2328/yesserv:latest
+        image: harbor-repo.vmware.com/dockerhub-proxy-cache/aca2328/yesserv:latest
         ports:
         - containerPort: 8000
 ---

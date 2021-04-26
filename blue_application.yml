@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: blue
-        image: alexfeig/bluegreen:latest
+        image: harbor-repo.vmware.com/dockerhub-proxy-cache/alexfeig/bluegreen:latest
         ports:
         - containerPort: 5000
         env:
