@@ -7,10 +7,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - secure2.ako.avilab.me
+    - greensec.ako.avilab.fun
     secretName: certif1
   rules:
-    - host: secure2.ako.avilab.me
+    - host: greensec.ako.avilab.fun
       http:
         paths:
         - path: /

@@ -2,18 +2,18 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   labels:
-    app: gslb
-  name: secure3
+    app: gslb  
+  name: bluesec2
 spec:
   tls:
   - hosts:
-    - yesserv.ako.avilab.fun
-    secretName: certif1
+    - bluesec2.ako.avilab.fun
+    secretName: bluesec
   rules:
-    - host: yesserv.ako.avilab.fun
+    - host: bluesec2.ako.avilab.fun
       http:
         paths:
         - path: /
           backend:
-            serviceName: yesserv
+            serviceName: blue
             servicePort: 80
