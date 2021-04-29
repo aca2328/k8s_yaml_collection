@@ -3,12 +3,12 @@ kind: Ingress
 metadata:
   labels:
     app: gslb
-  name: insecure
+  name: yesserv_insecure
 spec:
   rules:
-  - host: app1.ako.avilab.me
+  - host: yessrv80.ako.avilab.me
     http:
       paths:
       - backend:
-          serviceName: green
+          serviceName: yesserv
           servicePort: 80
