@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   labels:
     app: gslb
-  name: yesserv_insecure
+  name: yesservinsecure
 spec:
   rules:
   - host: yessrv80.ako.avilab.me
