@@ -8,7 +8,7 @@ spec:
     - sslapp.ako.avilab.me
     secretName: certif1
   rules:
-    - host: sslapp.ako.avilab.me
+    - host: sslapp.ako.avilab.fun
       http:
         paths:
         - path: /

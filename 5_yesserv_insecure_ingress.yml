@@ -6,7 +6,7 @@ metadata:
   name: yesservinsecure
 spec:
   rules:
-  - host: yessrv80.ako.avilab.me
+  - host: yessrv80.ako.avilab.fun
     http:
       paths:
       - backend:
