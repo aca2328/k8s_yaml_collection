@@ -1,2 +1,2 @@
 # Yaml files Collection
-can be used for variou k8s demo
+can be used for various k8s demo
