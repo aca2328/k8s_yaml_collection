@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: gslb
-  name: yeslb
+  name: yesservlb
   namespace: default
   annotations:
     service.beta.kubernetes.io/azure-dns-label-name: yeslb.ako.avilab.fun

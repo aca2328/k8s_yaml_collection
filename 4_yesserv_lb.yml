@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: gslb
-  name: yeslb
+  name: yesservlb
   namespace: default
 spec:
   type: LoadBalancer
@@ -12,3 +12,4 @@ spec:
     targetPort: 8000
   selector:
     app: yesserv
+    
