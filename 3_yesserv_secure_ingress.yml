@@ -8,7 +8,7 @@ spec:
   tls:
   - hosts:
     - yesserv443.ako.avilab.fun
-    secretName: certif1
+    secretName: ako.avilab.fun
   rules:
     - host: yesserv443.ako.avilab.fun
       http:
@@ -17,7 +17,6 @@ spec:
           backend:
             serviceName: yesserv
             servicePort: 80
-       paths:
         - path: /payment
           backend:
             serviceName: yesserv
