@@ -3,14 +3,14 @@ kind: Ingress
 metadata:
   labels:
     app: gslb  
-  name: bluesec
+  name: bgsecure
 spec:
   tls:
   - hosts:
-    - bluesec.ako.avilab.fun
-    secretName: bluesec
+    - bg.ako.avilab.fun
+    secretName: ako.avilab.fun
   rules:
-    - host: bluesec.ako.avilab.fun
+    - host: bg.ako.avilab.fun
       http:
         paths:
         - path: /
