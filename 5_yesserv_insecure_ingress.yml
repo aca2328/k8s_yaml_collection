@@ -1,6 +1,8 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
+  annotations:
+    kubernetes.io/ingress.class: "avi"
   labels:
     app: gslb
   name: yesservinsecure

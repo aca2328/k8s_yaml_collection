@@ -3,11 +3,10 @@ kind: Service
 metadata:
   labels:
     app: gslb
-  name: yesservlb
+  name: yesserv13
   namespace: default
-  annotations:
-    nodeportlocal.antrea.io/enabled: "true"
 spec:
+  loadBalancerIP: 172.17.15.13
   type: LoadBalancer
   ports:
   - port: 80
