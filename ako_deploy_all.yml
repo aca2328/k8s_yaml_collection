@@ -1,0 +1,38 @@
+apiVersion: networking.tkg.tanzu.vmware.com/v1alpha1
+kind: AKODeploymentConfig
+metadata:
+  annotations:
+  labels:
+  name: install-ako-for-all
+spec:
+  adminCredentialRef:
+    name: avi-controller-credentials
+    namespace: tkg-system-networking
+  certificateAuthorityRef:
+    name: avi-controller-ca
+    namespace: tkg-system-networking
+  cloudName: Default-Cloud
+  clusterSelector:
+    matchLabels:
+      avi: "true"
+  controlPlaneNetwork:
+    cidr: 10.206.112.0/22
+    name: vxw-dvs-34-virtualwire-3-sid-6120002-wdc-06-vc12-avi-mgmt
+  controller: 10.206.112.46
+  controllerVersion: 22.1.2
+  dataNetwork:
+    cidr: 10.206.112.0/22
+    name: vxw-dvs-34-virtualwire-3-sid-6120002-wdc-06-vc12-avi-mgmt
+  extraConfigs:
+    cniPlugin: antrea
+    disableStaticRouteSync: true
+    ingress:
+      defaultIngressController: false
+      disableIngressClass: true
+      nodeNetworkList:
+      - networkName: vxw-dvs-34-virtualwire-3-sid-6120002-wdc-06-vc12-avi-mgmt
+      serviceType: NodePortLocal
+    l4Config:
+      autoFQDN: flat
+      defaultDomain: avilab.top
+  serviceEngineGroup: tanzu1
