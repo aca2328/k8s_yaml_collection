@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    app: gslb
+  name: bgsecure
+spec:
+  tls:
+  - hosts:
+    - bg.ako.avilab.fun
+    secretName: ako.avilab.fun
+  rules:
+    - host: bg.ako.avilab.fun
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: green
+            servicePort: 80

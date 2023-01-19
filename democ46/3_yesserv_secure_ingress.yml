@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    app: gslb
+  name: 3yesservsec
+spec:
+  tls:
+  - hosts:
+    - yesserv443.ako.avilab.fun
+    secretName: ako.avilab.fun
+  rules:
+    - host: yesserv443.ako.avilab.fun
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: yesserv
+            servicePort: 80
+        - path: /payment
+          backend:
+            serviceName: yesserv
+            servicePort: 80
