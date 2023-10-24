@@ -1,29 +1,48 @@
-apiVersion: ako.vmware.com/v1alpha1
-kind: AviInfraSetting
+apiVersion: ako.vmware.com/v1beta1
+kind: HostRule
 metadata:
-  name: my-infra-setting
+  name: hostrule1
+  namespace: default
 spec:
-  seGroup:
-    name: compact-se-group
-  network:
-    vipNetworks:
-      - networkName: vip-network-10-10-10-0-24
-        cidr: 10.10.10.0/24
-        v6cidr: 2002::1234:abcd:ffff:c0a8:101/64
-    nodeNetworks:
-      - networkName: node-network-10-10-20-0-24
-        cidrs:
-        - 10.10.20.0/24
-    enableRhi: true
-    tcpSettings:
-      listeners:
-        - port: 8081
-          enableHTTP2: false
-          enableSSL: false
-        - port: 6443
-          enableSSL: true
-    bgpPeerLabels:
-      - peer1
-      - peer2
-  l7Settings:
-    shardSize: MEDIUM
+  virtualhost:
+    fqdn: *.az45.avilab.top # mandatory
+    fqdnType: Wildcard
+    enableVirtualHost: true
+    tls: # optional
+      sslKeyCertificate:
+        name: System-Default-Cert-EC
+        type: ref
+        alternateCertificate:
+          name: System-Default-Cert
+          type: ref
+      sslProfile: System-Standard-PFS
+      termination: edge
+    gslb:
+      fqdn: santagslb.avilab.top
+      includeAliases: false
+#    httpPolicy: 
+#      policySets:
+#      - avi-secure-policy-ref
+#      overwrite: false
+#    datascripts:
+#    - avi-datascript-redirect-app1
+    wafPolicy: DetectionMode
+#    applicationProfile: avi-app-ref
+#    icapProfile: 
+#    - avi-icap-ref
+    analyticsProfile: CustomAnalytics
+#    errorPageProfile: avi-errorpage-ref
+    analyticsPolicy: # optional
+      fullClientLogs:
+        enabled: true
+        throttle: HIGH
+      logAllHeaders: true
+#    tcpSettings:
+#      listeners:
+#     - port: 8081
+#      - port: 6443
+#        enableSSL: true
+#      loadBalancerIP: 10.10.10.1
+#    aliases: # optional
+#    -  bar.com
+#    -  baz.com
