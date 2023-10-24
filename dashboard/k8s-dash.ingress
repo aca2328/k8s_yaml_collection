@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dashb1
+  annotations:
+  namespace: kubernetes-dashboard
+spec:
+  ingressClassName: avi-lb
+  rules:
+  - host: dash.az45.avilab.top
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: kubernetes-dashboard
+            port:
+              number: 80
