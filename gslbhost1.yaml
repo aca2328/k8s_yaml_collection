@@ -1,0 +1,29 @@
+apiVersion: amko.vmware.com/v1alpha1
+kind: GSLBHostRule
+metadata:
+  name: gslb-host-rule-1
+  namespace: avi-system
+spec:
+  fqdn: santagslb.avilab.top
+  sitePersistence:
+    enabled: true
+    profileRef: "gap-1"  # only enabled for secure ingresses/routes
+      #  thirdPartyMembers:
+      #  - site: non-avi-site
+      #    vip: 10.10.10.10
+      #    publicIP: 122.162.150.96
+  healthMonitorRefs:
+  - System-GSLB-Ping
+  trafficSplit:
+  - cluster: k11
+    weight: 15
+    priority: 10
+  - cluster: k12
+    weight: 5
+    priority: 10
+   publicIP:
+  - cluster: k11
+    ip: 160.10.1.1
+  - cluster: k12
+    ip: 170.11.1.1
+  ttl: 5
