@@ -21,7 +21,7 @@ spec:
   - cluster: k12
     weight: 5
     priority: 10
-   publicIP:
+  publicIP:
   - cluster: k11
     ip: 160.10.1.1
   - cluster: k12
