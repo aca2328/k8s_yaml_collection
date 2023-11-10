@@ -26,11 +26,11 @@ spec:
 #      overwrite: false
 #    datascripts:
 #    - avi-datascript-redirect-app1
-    wafPolicy: DetectionMode
+#    wafPolicy: DetectionMode
 #    applicationProfile: avi-app-ref
 #    icapProfile: 
 #    - avi-icap-ref
-    analyticsProfile: CustomAnalytics
+#    analyticsProfile: CustomAnalytics
 #    errorPageProfile: avi-errorpage-ref
     analyticsPolicy: # optional
       fullClientLogs:
